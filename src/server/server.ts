@@ -1,10 +1,13 @@
-import * as express from 'express';
-import apiRouter from './routes';
+import * as express from "express";
+require("dotenv").config();
+
+import config from "./config";
+import apiRouter from "./routes";
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(apiRouter);
 
-const port = process.env.PORT || 3000;
+const port = config.PORT || 3000;
 app.listen(port, () => console.log(`Server listening on port: ${port}`));
