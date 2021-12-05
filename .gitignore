@@ -5,5 +5,8 @@ node_modules/
 dist/
 public/js/app.js
 
-#production_keys
+# production_keys
 .env
+
+# workspace
+.vscode/
