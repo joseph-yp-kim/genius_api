@@ -12,9 +12,8 @@ router.get(
   "/api/search",
   async (req: express.Request, res: express.Response) => {
     const query = req.query.q as string;
-    const apiSearchResults = await search.getSongs(query);
-    console.log("apiSearchResults:", apiSearchResults);
-    res.json({ query, results: apiSearchResults });
+    const songs = await search.getSongs(query);
+    res.json({ query, songs: songs });
   }
 );
 
