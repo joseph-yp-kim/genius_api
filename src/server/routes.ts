@@ -17,4 +17,13 @@ router.get(
   }
 );
 
+router.get(
+  "/api/annotations/:songId",
+  async (req: express.Request, res: express.Response) => {
+    const songId = req.params.songId;
+    const annotations = await search.getSongAnnotations(songId);
+    res.json({ songId, annotations });
+  }
+);
+
 export default router;
