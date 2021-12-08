@@ -24,6 +24,6 @@ jobs:
       - run: 'echo "$SSH_KEY" >> ~/.ssh/github-action'
       - run: chmod 400 ~/.ssh/github-action
       - run: echo -e "Host joedubshadow\n\tUser genius_api\n\tHostname 143.110.230.234\n\tIdentityFile ~/.ssh/github-action\n\tStrictHostKeyChecking No" >> ~/.ssh/config
-      - run: rsync -e ssh public joedubshadow:~/static
+      - run: rsync -e ssh -r public joedubshadow:~/static
       - run: rsync -e ssh dist/server.js joedubshadow:~/api/server.js
       - run: ssh joedubshadow "pm2 reload all"
